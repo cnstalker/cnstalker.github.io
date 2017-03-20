@@ -324,8 +324,7 @@
       
         
           <p>hexo+github搭建博客总的来说还是比较方便，网上教程很多。简要记录、整理搭建过程。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>1、安装git、配置ssh-key<br>2、安装node.js</p>
-<h1 id="github上的准备工作"><a href="#github上的准备工作" class="headerlink" title="github上的准备工作"></a>github上的准备工作</h1><p>新建一个名称为 <strong>账户名.github.io</strong> 的仓库,hexo生成的网页文件将被放在这里。例如我的github账户名为cnstalker,则我新建了一个<strong>cnstalker.github.io</strong>的仓库。<br>使用github搭建的博客允许绑定自己已有的域名，首先对域名进行解析，在<strong>账户名.github.io</strong>仓库设置中的Custom domain也需要对应设置上该域名。<br>我在该处出现了一个问题，每次上传使用hexo进行上传博客时，都需要重新设置仓库中的Custom domain，否则无法正确解析域名。<strong>解决方法：在hexo生成的目录下的source文件夹中新建一个CNAME文件，里面保存自己的域名。</strong><br>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>1、安装git、配置ssh-key<br>2、安装node.js<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/02/21/hexo+github搭建博客/#more" rel="contents">
@@ -546,10 +545,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">4</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
