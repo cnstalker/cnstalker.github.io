@@ -87,12 +87,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="我是坏人">
-<meta property="og:url" content="http://cnstalker.github.io/index.html">
+<meta name="description" content="#通信MobaXterm
+#编辑&amp;amp;编译vimVisual Studio
+#调试&amp;amp;逆向IDA proOllyDBG、x64DbgWinDBG
+#网络&amp;amp;渗透WireSharkNmapMetasploitminiwepEWSAReaverCommview for WiFiP2P OverEttercap&amp;amp;SETWebcrack &amp;amp; routerpassviewNe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用工具">
+<meta property="og:url" content="http://cnstalker.github.io/2017/02/21/常用工具/index.html">
 <meta property="og:site_name" content="我是坏人">
+<meta property="og:description" content="#通信MobaXterm
+#编辑&amp;amp;编译vimVisual Studio
+#调试&amp;amp;逆向IDA proOllyDBG、x64DbgWinDBG
+#网络&amp;amp;渗透WireSharkNmapMetasploitminiwepEWSAReaverCommview for WiFiP2P OverEttercap&amp;amp;SETWebcrack &amp;amp; routerpassviewNe">
+<meta property="og:updated_time" content="2017-03-20T13:00:00.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我是坏人">
+<meta name="twitter:title" content="常用工具">
+<meta name="twitter:description" content="#通信MobaXterm
+#编辑&amp;amp;编译vimVisual Studio
+#调试&amp;amp;逆向IDA proOllyDBG、x64DbgWinDBG
+#网络&amp;amp;渗透WireSharkNmapMetasploitminiwepEWSAReaverCommview for WiFiP2P OverEttercap&amp;amp;SETWebcrack &amp;amp; routerpassviewNe">
 
 
 
@@ -120,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://cnstalker.github.io/"/>
+  <link rel="canonical" href="http://cnstalker.github.io/2017/02/21/常用工具/"/>
 
 
 
 
 
-  <title> 我是坏人 </title>
+  <title> 常用工具 | 我是坏人 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -151,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,136 +247,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://cnstalker.github.io/2017/02/21/hexo+github搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="坏人">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我是坏人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/21/hexo+github搭建博客/" itemprop="url">
-                  hexo+github搭建博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-21T00:00:00-05:00">
-                2017-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>hexo+github搭建博客总的来说还是比较方便，网上教程很多。简要记录、整理搭建过程。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>1、安装git、配置ssh-key<br>2、安装node.js</p>
-<h1 id="github上的准备工作"><a href="#github上的准备工作" class="headerlink" title="github上的准备工作"></a>github上的准备工作</h1><p>新建一个名称为 <strong>账户名.github.io</strong> 的仓库,hexo生成的网页文件将被放在这里。例如我的github账户名为cnstalker,则我新建了一个<strong>cnstalker.github.io</strong>的仓库。<br>使用github搭建的博客允许绑定自己已有的域名，首先对域名进行解析，在<strong>账户名.github.io</strong>仓库设置中的Custom domain也需要对应设置上该域名。<br>我在该处出现了一个问题，每次上传使用hexo进行上传博客时，都需要重新设置仓库中的Custom domain，否则无法正确解析域名。<strong>解决方法：在hexo生成的目录下的source文件夹中新建一个CNAME文件，里面保存自己的域名。</strong><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/21/hexo+github搭建博客/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -395,10 +279,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/02/21/常用工具/" itemprop="url">
-                  常用工具
-                </a>
+                常用工具
               
             
           </h1>
@@ -449,28 +330,33 @@
       
 
       
-        
-          
-            <p>#通信<br>MobaXterm</p>
+        <p>#通信<br>MobaXterm</p>
 <p>#编辑&amp;编译<br>vim<br>Visual Studio</p>
 <p>#调试&amp;逆向<br>IDA pro<br>OllyDBG、x64Dbg<br>WinDBG</p>
 <p>#网络&amp;渗透<br>WireShark<br>Nmap<br>Metasploit<br>miniwep<br>EWSA<br>Reaver<br>Commview for WiFi<br>P2P Over<br>Ettercap&amp;SET<br>Webcrack &amp; routerpassview<br>Nessus</p>
 <p>#破解<br>Cain &amp; Abel</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -478,21 +364,38 @@
       
 
       
-
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/21/hexo+github搭建博客/" rel="prev" title="hexo+github搭建博客">
+                hexo+github搭建博客 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -500,6 +403,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -669,6 +576,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
