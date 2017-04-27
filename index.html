@@ -323,20 +323,15 @@
 
       
         
-          
-            <pre><code>[openpyxl官方文档](http://openpyxl.readthedocs.org/)
-openpyxl将工作簿（WorkBook）、工作表（Sheet）、单元格（Cell）作为具体操作Excel的对象。
-</code></pre><h1 id="工作簿（加载与保存）"><a href="#工作簿（加载与保存）" class="headerlink" title="工作簿（加载与保存）"></a>工作簿（加载与保存）</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wb = openpyxl.load_workbook(<span class="string">u'明细表.xlsx'</span>)<span class="comment">#加载工作簿</span></div><div class="line">wb.save(<span class="string">u"明细表（修改）.xlsx"</span>)<span class="comment">#将修改后的工作簿另存为</span></div></pre></td></tr></table></figure>
-<h1 id="工作表操作"><a href="#工作表操作" class="headerlink" title="工作表操作"></a>工作表操作</h1><h2 id="获取当前工作表的名称"><a href="#获取当前工作表的名称" class="headerlink" title="获取当前工作表的名称"></a>获取当前工作表的名称</h2><p>使用active或者get_active_sheet()我们可以获取当前操作的工作表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sheetactive = wb.active</div><div class="line"><span class="keyword">print</span> sheetactive.title</div><div class="line"></div><div class="line">sheetactive = wb.get_active_sheet()</div><div class="line"><span class="keyword">print</span> sheetactive.title</div></pre></td></tr></table></figure></p>
-<h2 id="打开工作表"><a href="#打开工作表" class="headerlink" title="打开工作表"></a>打开工作表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#打开指定名称的工作表</span></div><div class="line">sheet1 = wb[<span class="string">u"2月2日"</span>] <span class="comment">#方法一</span></div><div class="line">sheet2 = wb.get_sheet_by_name(<span class="string">u"2月2日"</span>)<span class="comment">#方法二</span></div><div class="line"></div><div class="line"><span class="comment">#打开指定位置的工作表</span></div><div class="line">sheet_names = wb.get_sheet_names()</div><div class="line">sheet1 = wb.get_sheet_by_name(sheet_names[<span class="number">0</span>])</div></pre></td></tr></table></figure>
-<h2 id="创建工作表"><a href="#创建工作表" class="headerlink" title="创建工作表"></a>创建工作表</h2><pre><code>创建工作表需要使用create_sheet()函数。
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">sheet1 = wb.create_sheet() <span class="comment">#默认插在最后</span></div><div class="line">sheet1 = wb.create_sheet( index = <span class="number">0</span> ) <span class="comment">#插在开头</span></div><div class="line">sheet1.title = <span class="string">u"新工作表"</span> <span class="comment">#修改表名称</span></div><div class="line"></div><div class="line">sheet1 = wb.create_sheet( title = <span class="string">u"新工作表"</span>, index =<span class="number">0</span> )<span class="comment">#名称和位置同时指定</span></div><div class="line"></div><div class="line"><span class="comment">#批量生成工作表</span></div><div class="line">i = <span class="number">0</span></div><div class="line"><span class="keyword">while</span>(i &lt;= <span class="number">30</span>):</div><div class="line">    date = i+<span class="number">1</span></div><div class="line">    wb.create_sheet( title = <span class="string">u"3月%s号"</span> % date, index = i )</div><div class="line">    i =i +<span class="number">1</span></div></pre></td></tr></table></figure>
-<h2 id="删除工作表"><a href="#删除工作表" class="headerlink" title="删除工作表"></a>删除工作表</h2><p>使用remove_sheet()函数可以删除工作表。<br>remove_sheet()函数的参数不是工作表的名称，而是工作表的对象。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wb.remove_sheet(sheet1)</div><div class="line">wb.remove_sheet(wb[<span class="string">u"2月1日"</span>])</div></pre></td></tr></table></figure></p>
-<h1 id="单元格"><a href="#单元格" class="headerlink" title="单元格"></a>单元格</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">sheet1[<span class="string">"A4"</span>]= <span class="number">25</span> <span class="comment">#找到具体的单元格进行数据输入。</span></div><div class="line"></div><div class="line">italic16_Font = Font(size=<span class="number">16</span>, italic=<span class="keyword">True</span>) <span class="comment">#设置字体、大小</span></div><div class="line">sheet[<span class="string">'A4'</span>].font = italic24_Font</div><div class="line">sheet[<span class="string">'A4'</span>] = <span class="string">'Hello world!'</span></div><div class="line">	</div><div class="line">sheet[<span class="string">'A10'</span>] = <span class="string">'=SUM(A1:A9)'</span> <span class="comment">#输入公式</span></div><div class="line"></div><div class="line">sheet.row_dimensions[<span class="number">1</span>].height = <span class="number">70</span></div><div class="line">sheet.column_dimensions[<span class="string">'B'</span>].width = <span class="number">20</span> <span class="comment">#设置行高行宽</span></div><div class="line"></div><div class="line">sheet.merge_cells(<span class="string">'A1:D3'</span>) <span class="comment">#合并单元格</span></div><div class="line">sheet.unmerge_cells(<span class="string">'A1:D3'</span>) <span class="comment">#拆分单元格</span></div></pre></td></tr></table></figure>
-<h1 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h1><p>单元格没有数据时，openpyxl将其表示为none。<br>为了防止获取的数据两端有看不见的空格（excel文件里很常见的坑），记得strip()</p>
-<h1 id="其它处理Excel的Python库"><a href="#其它处理Excel的Python库" class="headerlink" title="其它处理Excel的Python库"></a>其它处理Excel的Python库</h1><p>用到再研究吧<br>xlwings、pandas、win32com、xlsxwriter、DataNitro、xlutils<br><a href="http://pandas.pydata.org/pandas-docs/stable/tutorials.html" target="_blank" rel="external">pandas官方文档</a><br><a href="http://docs.xlwings.org" target="_blank" rel="external">xlwings官方文档</a></p>
-
-          
+          <p><a href="http://openpyxl.readthedocs.org/">openpyxl官方文档</a><br>openpyxl将工作簿（WorkBook）、工作表（Sheet）、单元格（Cell）作为具体操作Excel的对象。</p>
+<h1 id="一、工作簿（加载与保存）"><a href="#一、工作簿（加载与保存）" class="headerlink" title="一、工作簿（加载与保存）"></a>一、工作簿（加载与保存）</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wb = openpyxl.load_workbook(<span class="string">u'明细表.xlsx'</span>)<span class="comment">#加载工作簿</span></div><div class="line">wb.save(<span class="string">u"明细表（修改）.xlsx"</span>)<span class="comment">#将修改后的工作簿另存为</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/23/Python处理Excel（使用openpyxl库）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -495,132 +490,6 @@ openpyxl将工作簿（WorkBook）、工作表（Sheet）、单元格（Cell）�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://cnstalker.github.io/2017/02/21/常用工具备忘录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="坏人">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我是坏人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/21/常用工具备忘录/" itemprop="url">
-                  常用工具备忘录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-21T00:00:00-05:00">
-                2017-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>#通信<br>MobaXterm</p>
-<p>#编辑&amp;编译<br>vim<br>Visual Studio</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/21/常用工具备忘录/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -666,7 +535,7 @@ openpyxl将工作簿（WorkBook）、工作表（Sheet）、单元格（Cell）�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -679,7 +548,7 @@ openpyxl将工作簿（WorkBook）、工作表（Sheet）、单元格（Cell）�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
